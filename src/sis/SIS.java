@@ -3,6 +3,7 @@
         import javax.swing.JOptionPane;
         import java.io.*;
         import java.util.ArrayList;
+import java.util.Scanner;
 public class SIS {
             static ArrayList<student> studentList = new ArrayList<>();
             int choise;
@@ -14,15 +15,6 @@ public class SIS {
         SIS sis;
         sis=new SIS();
         sis.logIn();
-        
-                
-        
-       
-        
-       
-
-
-
         }
         public void logIn() throws IOException {
         JOptionPane.showMessageDialog(null, "Welcome to the SIS, Student Information System.");
@@ -141,15 +133,20 @@ public class SIS {
          
         
                }
-         public void list() throws IOException{
-            
-            FileReader fr=new FileReader("student.txt");
+         public void list() throws IOException
+         {
+            Scanner sc=new Scanner(new File("student.txt"));
+            while(sc.hasNextLine())
+    			System.out.println(sc.nextLine());
+    		sc.close();
+          /*  FileReader fr=new FileReader("student.txt");
     BufferedReader br=new BufferedReader(fr);
       int i; 
     while ((i=br.read()) != -1){  
      
       System.out.print((char) i); 
     }
+    */
   }
          
 }
